@@ -1,22 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
+import Layout from '../components/layout/HelloWorld.vue'
+import Login from '../components/login/login.vue'
 Vue.use(VueRouter)
 
 const routes = [
+  {path: '/login',component:Login},
+  {path: '/reset',component:()=>{'../components/login/reset.vue'},hidden:true},
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    hidden:true,
+    redirect:'/index/seeLifeCirel',
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/index',
+    component: Layout,
+    redirect: 'noredirect',
+    name: '',
+    children:[
+      {path: 'seeLifeCirel',component:()=>{import('../components/lifecirel/seelifecirel')},name:'浏览生活圈'},
+      {path: 'writeLifeCirel',component:()=>{import('../components/lifecirel/writelifecirel')},name:'创作生活圈'},
+
+    ],
   }
 ]
 

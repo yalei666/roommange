@@ -1,0 +1,65 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1317820",
+      "name": "沟通页_三条杠_跳转选择孩子",
+      "font_class": "goutongye_santiaogang_tiaozhuanxuanzehaizi",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "1546379",
+      "name": "setting wrenches",
+      "font_class": "settingwrenches",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "3216150",
+      "name": "信封",
+      "font_class": "icon--",
+      "unicode": "e749",
+      "unicode_decimal": 59209
+    },
+    {
+      "icon_id": "4409261",
+      "name": "上传",
+      "font_class": "ziyuan",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "5327369",
+      "name": "表格",
+      "font_class": "biaoge",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "11372654",
+      "name": "电影",
+      "font_class": "dianying",
+      "unicode": "e8ae",
+      "unicode_decimal": 59566
+    },
+    {
+      "icon_id": "11372774",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e8c6",
+      "unicode_decimal": 59590
+    },
+    {
+      "icon_id": "11372783",
+      "name": "影院",
+      "font_class": "yingyuan",
+      "unicode": "e8c7",
+      "unicode_decimal": 59591
+    }
+  ]
+}
