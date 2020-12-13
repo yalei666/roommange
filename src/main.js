@@ -14,9 +14,7 @@ Vue.use(ElementUI);
 const whiteList = ['/login','/reset'];
 router.beforeEach((to,from,next) => {
   NProgress.start();//开启Progress
-
   if(store.getters.token) {
-  
     if(to.path === '/login') {
         next({path:'/'});
     } else if(to.path == '/401'){

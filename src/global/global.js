@@ -4,7 +4,7 @@ import VueAxios from 'vue-axios';
 import {Loading} from 'element-ui';
 Vue.use(VueAxios,axios);
 export const global = {
-  post:function(url,body,sucCb,errorCb,isLoading=true,isLogin){
+  post:function(url,body,sucCb,errorCb,config,isLoading=true,isLogin){
     if(!url){
       console.log('接口url不能为空！');
       return false;
@@ -12,7 +12,7 @@ export const global = {
     if(isLoading){
       var loadingInstance = Loading.service({text:"拼命加载中"});
     }
-     Vue.axios.post(url,body)
+     Vue.axios.post(url,body,config)
      .then((response) => {
          //响应成功回调
          console.log('成功回调')
