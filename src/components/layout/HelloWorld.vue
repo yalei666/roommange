@@ -7,6 +7,7 @@
       <Navbar/>
       <AppMain/>
     </div>
+    
   </div>
 </template>
 <script>
@@ -62,7 +63,7 @@
   }
   .sidebar-container {
     transition: all .28s ease-out;
-    position: absolute;
+    position: absolute !important;
     top:0;
     bottom:0;
     left:0;

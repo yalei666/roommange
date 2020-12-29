@@ -28,14 +28,12 @@ const user = {
  actions: {
     //邮箱登录
     LoginByEmail({commit},userInfo){
-
       return new Promise((resolve,reject)=>{
         console.log('登录入参',userInfo)
         global.post('/api/login',userInfo,function(res){
           console.log('......获取登录返回信息:',res.data)
           if(res.data.resultCode == 0){
             var res=res.data.data;
-
             Cookies.set('userToken',res.token,{expires:1/3});
             Cookies.set('userId',res.uid,{expires:1/3});
             //设置token
@@ -64,15 +62,11 @@ const user = {
                   console.log('-------根据id获取用户信息：',JSON.stringify(res) )
                   if(res.data.resultCode == 0){
                        var res = res.data.data;
-                             
-
                              //设置userInfo
                              commit('SET_USERINFO', res.baseInfo);
-
                              //获取到信息时同时设置用户菜单权限
                              // store.dispatch('GenerateRoutes', res.permissions); 等同于
                              dispatch('GenerateRoutes', res.permissions);
-
                              resolve();
                   }else{
                         //alert(res.body.resultMsg)
@@ -82,8 +76,6 @@ const user = {
                             type: 'error'
                         });
                   }
-
-                  
             },function(res){
                 reject(res);
             })

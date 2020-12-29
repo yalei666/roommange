@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '../components/layout/HelloWorld.vue'
 import Login from '../components/login/login.vue'
+import seelifecirel from '../components/lifecirel/seelifecirel.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,16 +11,16 @@ const routes = [
   {
     path: '/',
     hidden:true,
-    redirect:'/index/seeLifeCirel',
+    redirect:'/index/seelifeCirel',
   },
   {
     path: '/index',
     component: Layout,
     redirect: 'noredirect',
-    name: '',
+    name: '总',
     children:[
-      {path: 'seeLifeCirel',component:()=>{import('../components/lifecirel/seelifecirel')},name:'浏览生活圈'},
-      {path: 'writeLifeCirel',component:()=>{import('../components/lifecirel/writelifecirel')},name:'创作生活圈'},
+      {path: 'seelifeCirel',component:seelifecirel,name:'浏览生活圈'},
+      {path: 'writeLifeCirel',component:()=>{('../components/lifecirel/writelifecirel')},name:'创作生活圈'},
 
     ],
   }

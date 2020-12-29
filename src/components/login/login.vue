@@ -4,12 +4,12 @@
       <el-form :model="ruleForm" status-icon  ref="ruleForm" label-width="0px" class="login-form">
         <h3 class="title">系统登录<i class="" aria-hidden="true"></i></h3>
         <el-form-item prop="email">
-          <el-input type="text" v-model="ruleForm.account" autocomplete="off" placeholder="用户名"></el-input>
+          <el-input name="account" type="text" v-model="ruleForm.account" autocomplete="off" placeholder="用户名"></el-input>
         </el-form-item>
         <el-form-item  prop="pass">
-          <el-input type="password" v-model="ruleForm.password" autocomplete="off" placeholder="密码"></el-input>
+          <el-input name="password" type="password" v-model="ruleForm.password" autocomplete="off" placeholder="密码"></el-input>
         </el-form-item>
-          <el-button type="primary"  @click="submitForm()">登录</el-button>
+          <el-button type="primary"  @click="submitForm">登录</el-button>
           <el-button  class="middle" type="success" @click="dialogVisible = true">注册</el-button>
           <el-button class="right">忘记密码</el-button>
         </el-form-item>
@@ -22,10 +22,10 @@
             <el-input v-model="resetForm.account" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="密码" :label-width="formLabelWidth">      
-            <el-input v-model="resetForm.password" autocomplete="off"></el-input>
+            <el-input type="password" v-model="resetForm.password" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item label="再次输入密码" :label-width="formLabelWidth">      
-            <el-input v-model="resetForm.conpassword" autocomplete="off"></el-input>
+            <el-input type="password" v-model="resetForm.conpassword" autocomplete="off"></el-input>
           </el-form-item>                        
           <el-form-item label="姓名" :label-width="formLabelWidth">
             <el-input v-model="resetForm.stname" autocomplete="off"></el-input>
@@ -97,9 +97,11 @@
     },
     methods: {
       submitForm() {
-        var vm = this;
-        var par = JSON.parse(JSON.stringify(vm.ruleForm));
-        vm.$store.dispatch('LoginByEmail',par).then((res)=>{
+        let vm = this;
+        let forData = new FormData();
+        forData.append('account',vm.ruleForm.account);
+        forData.append('password',vm.ruleForm.password);
+        vm.$store.dispatch('LoginByEmail',forData).then((res)=>{
           console.log('登录成功即将跳转。。。。。。')
           vm.$router.push({path:'/'});
         })   
@@ -107,7 +109,6 @@
       uploadAll(params){
         let vm = this;
         let forData = new FormData();
-        forData.append('id',0);
         forData.append('file',params.file);
         forData.append('grade',vm.resetForm.grade);
         forData.append('stname',vm.resetForm.stname);
@@ -197,7 +198,7 @@
         width:300px;
       }
           .el-dialog{
-          width:30% !important;
+          width:50% !important;
         }    
     }
 

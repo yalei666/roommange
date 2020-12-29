@@ -13,6 +13,7 @@ Vue.use(ElementUI);
 
 const whiteList = ['/login','/reset'];
 router.beforeEach((to,from,next) => {
+  console.log(to.path)
   NProgress.start();//开启Progress
   if(store.getters.token) {
     if(to.path === '/login') {
@@ -26,7 +27,10 @@ router.beforeEach((to,from,next) => {
       if(!store.getters.userInfo){
         console.log('未获取到用户信息',store.getters.userinfo)
           store.dispatch('GetInfo').then(res =>{
+            console.log("waingxia");
+            
             next();
+            console.log("waingxssss");
           }).catch(err =>{
             console.log(err)
           });
@@ -40,6 +44,7 @@ router.beforeEach((to,from,next) => {
           NProgress.done();
         } 
         else{
+          console.log('1');
           next();
         }
       }
