@@ -5,8 +5,8 @@
       <tabs-view></tabs-view>
       <el-dropdown class="avatar-container" >
         <div class="avatar-wrapper">
-          <span class="user-name"></span>
-          <img class="user-avatar" ></img>
+          <span class="user-name">{{userInfo.stname}}</span>
+          <img class="user-avatar" :src="userInfo.imgpath"></img>
           <i class="el-icon-caret-bottom"></i>
         </div>
         <el-dropdown-menu class="user-dropdown" slot="dropdown">
