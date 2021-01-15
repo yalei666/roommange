@@ -123,7 +123,7 @@
         line-height:40px;
         .user-name{
           float:left;
-          margin-left:5px;
+          margin-right:20px;
         }
         .user-avatar {
           width:40px;

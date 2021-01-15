@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Layout from '../components/layout/HelloWorld.vue'
 import Login from '../components/login/login.vue'
 import seelifecirel from '../components/lifecirel/seelifecirel.vue'
+import baoxiu from '../components/bxxiangguan/baoxiu.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,6 +24,14 @@ const routes = [
       {path: 'seelifeCirel',component:seelifecirel,name:'浏览生活圈'},
       {path: 'writeLifeCirel',component:()=>{('../components/lifecirel/writelifecirel')},name:'创作生活圈'},
 
+    ],
+  },
+  {
+    path:'/bxxiangguan',
+    component:Layout,
+    name:'保修相关',
+    children:[
+      {path: 'baoxiu',component:baoxiu,name:'提交保修'}
     ],
   }
 ]
